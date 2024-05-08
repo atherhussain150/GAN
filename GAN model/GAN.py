@@ -11,13 +11,13 @@ def build_generator(latent_dim):
     model.add(layers.LeakyReLU())
     model.add(layers.Dropout(0.5))
     model.add(layers.Reshape((7, 7, 64)))
-    model.add(layers.Conv2DTranspose(32, (5, 5), strides=(1, 1), padding='same', use_bias=False, kernel_regularizer=regularizers.l2(0.01)))
+    model.add(layers.Conv2DTranspose(32, (5, 5), strides=(1, 1), padding='same', use_bias=False, kernel_regularizer=regularizers.l2(0.02)))
     model.add(layers.BatchNormalization())
     model.add(layers.LeakyReLU())
-    model.add(layers.Conv2DTranspose(32, (5, 5), strides=(2, 2), padding='same', use_bias=False, kernel_regularizer=regularizers.l2(0.01)))
+    model.add(layers.Conv2DTranspose(32, (5, 5), strides=(2, 2), padding='same', use_bias=False, kernel_regularizer=regularizers.l2(0.02)))
     model.add(layers.BatchNormalization())
     model.add(layers.LeakyReLU())
-    model.add(layers.Conv2DTranspose(1, (5, 5), strides=(2, 2), padding='same', use_bias=False, activation='tanh', kernel_regularizer=regularizers.l2(0.01)))
+    model.add(layers.Conv2DTranspose(1, (5, 5), strides=(2, 2), padding='same', use_bias=False, activation='tanh', kernel_regularizer=regularizers.l2(0.02)))
     return model
 
 # Define the discriminator model
